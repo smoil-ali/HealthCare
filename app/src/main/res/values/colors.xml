@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#015291</color>
+    <color name="colorPrimaryDark">#024071</color>
+    <color name="colorAccent">#015291</color>
+    <color name="newsFeedTopMenuColor">#F5F5F5</color>
+    <color name="white">#ffffff</color>
+    <color name="dateColor">#9e9e9e</color>
+    <color name="titleColor">#212121</color>
+    <color name="descriptionColor">#757575</color>
+    <color name="onPressedColor">#4D000000</color>
+    <color name="grey">#E5E5E5</color>
+    <color name="heading">#015291</color>
+    <!--colors for modern ui-->
+    <color name="whiteTextColor">#fff</color>
+    <color name="primaryTextColor">#015291</color>
+    <color name="loginBkColor">#f0f0f0</color>
+
+    <!--colros for card-->
+    <color name="whiteCardColor">#fff</color>
+    <color name="ThemeColor">#000</color>
+    <color name="LikedColor">#3F79ED</color>
+    <color name="LikeColor">#303839</color>
+</resources>

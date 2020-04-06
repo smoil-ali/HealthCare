@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/postCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+
+            >
+            <TextView
+                android:id="@+id/postTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Referective Contract Surgery: Lenzes, Lasers, and Best Practice Hacks"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/titleColor"
+                android:layout_marginBottom="8dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/senderPic"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/download"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    >
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Mysha Ali"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/postDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="March 24, 2020"
+                        android:textColor="@color/dateColor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_marginTop="2dp"
+
+                        />
+
+                    <!-- <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text=", by"
+                         android:layout_marginLeft="5dp"
+                         android:textColor="@color/dateColor"
+                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                         />
+                     <TextView
+                         android:id="@+id/postedBy"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="Usama Sarfraz"
+                         android:layout_marginLeft="5dp"
+                         android:textColor="#0000FF"
+                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                         />-->
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/postimage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/download"
+                android:scaleType="fitXY"
+                android:layout_marginBottom="10dp"
+
+                />
+
+            <TextView
+                android:id="@+id/postDiscription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Referective Contract Surgery: Lenzes, Lasers, and Best Referective Contract Surgery: Lenzes, Lasers, and Best Referective Contract Surgery: Lenzes, Lasers, and Best"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/descriptionColor"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:layout_marginBottom="10dp"
+                />
+         <!--   <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:background="@color/white"
+                >
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:text="Like"
+                    android:textColor="#616161" />
+
+                <Button
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Comment"
+                    android:textColor="#616161"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    />
+
+                <Button
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Answer"
+                    android:textColor="#616161"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    />
+
+
+
+            </LinearLayout>-->
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

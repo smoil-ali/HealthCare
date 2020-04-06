@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="20dp"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/answerDp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/answerDp"
+        android:id="@+id/answerName"
+        android:textSize="25sp"
+        android:text="Doctor Name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/answerDescription"
+        android:text="Your answer should be here"
+        android:layout_below="@id/answerDp"
+        android:layout_marginTop="10dp"
+        android:maxLines="5"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/answerLiked"
+        android:layout_below="@id/answerDescription"
+        android:layout_toLeftOf="@id/answerChat"
+        android:text="Like"
+        android:layout_marginRight="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/answerChat"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/answerDescription"
+        android:text="Chat"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noOfLikes"
+        android:layout_alignParentEnd="true"
+        android:text="50k"
+        android:layout_marginTop="5dp"/>
+
+
+
+</RelativeLayout>

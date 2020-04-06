@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home_icon"
+        />
+
+    <item
+        android:id="@+id/unanswerd"
+        android:title="Un Answered"
+        android:icon="@drawable/question_answer"
+        />
+
+    <item android:id="@+id/askQuestion"
+        android:title="Ask Question"
+        android:icon="@drawable/ic_doubts_in_human_mind"
+        />
+
+    <item android:id="@+id/categories"
+        android:title="Categories"
+        android:icon="@drawable/list"
+        />
+    <item android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/profile"
+        />
+
+</menu>

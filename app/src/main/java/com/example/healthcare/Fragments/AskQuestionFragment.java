@@ -127,10 +127,39 @@ public class AskQuestionFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
+        post();
     }
 
+    public void post(){
+        final DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("Post");
+        databaseReference.child(MainActivity.CURRENT_CITY).push().child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String postname=post_title.getText().toString();
+                String postdesc=post_des.getText().toString();
+                HashMap<String,Object> map=new HashMap<>();
+                map.put("Title","Corona");
+                map.put("Category","Dont Know");
+                map.put("Description","how to get cure from this");
+                map.put("pushKey",dataSnapshot.getRef().getParent().getKey());
+                map.put("ImageUri","null");
+                map.put("Userid",FirebaseAuth.getInstance().getCurrentUser().getUid());
+                map.put("Name", UserConstantModel.Name);
+                dataSnapshot.getRef().updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(getContext(), "Posted", Toast.LENGTH_SHORT).show();
 
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), "something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     public void btnUploadPost()
     {

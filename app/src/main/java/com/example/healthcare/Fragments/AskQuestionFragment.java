@@ -151,7 +151,6 @@ public class AskQuestionFragment extends Fragment {
                 map.put("Description",postdesc);
                 map.put("pushKey",dataSnapshot.getRef().getParent().getKey());
                 map.put("ImageUri",imageUrl);
-                map.put("Userid",firebaseUser.getUid());
                 dataSnapshot.getRef().updateChildren(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

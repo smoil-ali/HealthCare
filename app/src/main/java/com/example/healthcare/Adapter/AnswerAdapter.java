@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.example.healthcare.Activity.ChatActivity;
 import com.example.healthcare.Activity.Forum;
 import com.example.healthcare.Model.AnsweredModelClass;
+import com.example.healthcare.Model.ImageDp;
 import com.example.healthcare.Model.Like;
 import com.example.healthcare.Model.UserConstantModel;
 import com.example.healthcare.R;
@@ -59,6 +60,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
         Log.i("answered value == ",answeredModelClasses.get(position).getPushKey()+" "+answeredModelClasses.get(position).getNameOfDoctor());
 
         GetLikesOfCurrentPostOfCurrentAnswer(holder.noOfLikes,answeredModelClasses.get(position).getPushKey());
+        GetDpOfUser(answeredModelClasses.get(position).getDoctorUid(),holder.answerDp);
         holder.answer.setText(answeredModelClasses.get(position).getAnswer());
         CheckIfUserAlreadyLikedAnswer(holder.answeredLiked,answeredModelClasses.get(position).getPushKey());
         holder.answeredLiked.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +69,8 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
                 setAnsweredLikes(answeredModelClasses.get(position).getPushKey());
             }
         });
+
+
 
         holder.answerChat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +103,27 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
         }
     }
 
+    //////////// This function will set the Dp to specific User post ////////////////////
+
+    public void GetDpOfUser(String UserId, final CircleImageView dp){
+        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("ImageDps");
+        databaseReference.child(UserId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    ImageDp dpUri=dataSnapshot.getValue(ImageDp.class);
+                    Glide.with(context).load(dpUri.getDp()).placeholder(R.mipmap.ic_launcher).into(dp);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    //////////// This function will set the Dp to specific User post ////////////////////
 
     //////////// This function will set the Like to specific Answer ////////////////////
 

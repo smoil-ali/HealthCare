@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.healthcare.Model.CommentModelClass;
+import com.example.healthcare.Model.ImageDp;
 import com.example.healthcare.Model.Like;
 import com.example.healthcare.Model.UserConstantModel;
 import com.example.healthcare.R;
@@ -53,7 +54,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         Glide.with(context).load("null").placeholder(R.mipmap.ic_launcher).into(holder.commentDp);
         holder.UserName.setText(commentModelClasses.get(position).getNameOfUser());
 
-
+        GetDpOfUser(commentModelClasses.get(position).getUserUid(),holder.commentDp);
         GetLikesOfCurrentPostOfCurrentComment(holder.noOfLikes,commentModelClasses.get(position).getPushKey());
         holder.comment.setText(commentModelClasses.get(position).getComment());
         CheckIfUserAlreadyLikedComments(holder.commentLiked,commentModelClasses.get(position).getPushKey());
@@ -82,6 +83,30 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             commentLiked=itemView.findViewById(R.id.commentLiked);
         }
     }
+
+
+
+    //////////// This function will set the Dp to specific User post ////////////////////
+
+    public void GetDpOfUser(String UserId, final CircleImageView dp){
+        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("ImageDps");
+        databaseReference.child(UserId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    ImageDp dpUri=dataSnapshot.getValue(ImageDp.class);
+                    Glide.with(context).load(dpUri.getDp()).placeholder(R.mipmap.ic_launcher).into(dp);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    //////////// This function will set the Dp to specific User post ////////////////////
 
 
     //////////// This function will set the Like to specific Comment ////////////////////

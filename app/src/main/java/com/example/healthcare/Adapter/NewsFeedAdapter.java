@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.healthcare.Activity.Forum;
 import com.example.healthcare.Activity.Signup_Patient;
+import com.example.healthcare.Model.ImageDp;
 import com.example.healthcare.Model.Like;
 import com.example.healthcare.Model.NewsFeedModel;
 import com.example.healthcare.R;
@@ -72,6 +73,8 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
             Glide.with(mContext).load(newsFeedsList.get(position).getImageUri()).placeholder(R.mipmap.ic_launcher).into(holder.image);
         }
 
+        GetDpOfUser(newsFeedsList.get(position).getUserid(),holder.senderPic);
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +118,30 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.NewsFe
 
 
     }
+
+
+    //////////// This function will set the Dp to specific User post ////////////////////
+
+    public void GetDpOfUser(String UserId, final CircleImageView dp){
+        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference("ImageDps");
+        databaseReference.child(UserId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    ImageDp dpUri=dataSnapshot.getValue(ImageDp.class);
+                    Glide.with(mContext).load(dpUri.getDp()).placeholder(R.mipmap.ic_launcher).into(dp);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    //////////// This function will set the Dp to specific User post ////////////////////
+
 
 
     public void AddLikeToCurrentPost(String pushKey){
